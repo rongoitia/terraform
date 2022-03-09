@@ -1,0 +1,16 @@
+[
+  {
+    "name": "backend",
+    "image": "nginx",
+    "cpu": 0,
+    "memoryReservation": 300,
+    "essential": true,
+    "portMappings": [
+      {
+        "hostPort": 0,
+        "protocol": "tcp",
+        "containerPort": 8000
+      }
+    ]
+  }
+]

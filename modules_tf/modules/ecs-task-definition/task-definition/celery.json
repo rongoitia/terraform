@@ -1,0 +1,16 @@
+[
+  {
+    "name": "celery",
+    "image": "nginx",
+    "cpu": 0,
+    "memoryReservation": 64,
+    "essential": true,
+    "portMappings": [
+      {
+      "hostPort": 0,
+      "protocol": "tcp",
+      "containerPort": 80
+      }
+    ]
+  }
+]
