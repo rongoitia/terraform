@@ -1,0 +1,54 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: "3 buckets s3"
+Transform: 
+  - AWS::Serverless-2016-10-31
+
+Mappings:
+  Variables:
+    '597844716329': #Reemplazar con el nro de cuenta de AWS correspondiente a DEV
+      bucket1: dev-teco-datalake-bff
+      bucket2: my-bucket-2-dev
+      bucket3: my-bucket-3-dev
+    '769771297716': #Reemplazar con el nro de cuenta de AWS correspondiente a TEST
+      bucket1: uat-teco-datalake-bff
+      bucket2: my-bucket-2-test
+      bucket3: my-bucket-3-test
+    '460778366628': #Reemplazar con el nro de cuenta de AWS correspondiente a PROD
+      bucket1: prod-teco-datalake-bff
+      bucket2: my-bucket-2-prod
+      bucket3: my-bucket-3-prod
+
+
+Resources:
+  Bucket1:
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketName: !FindInMap [Variables, !Ref "AWS::AccountId", "bucket1"]
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'AES256'
+  #BucketPolicy:
+  #    Type: AWS::S3::BucketPolicy
+  #    Properties:
+  #      Bucket: !Ref Bucket1
+  #      PolicyDocument:
+  #        Version: 2012-10-17
+  #       Statement:
+  #          - Effect: Allow
+  #            Action:
+  #              - s3:GetObject
+  #              - s3:PutObject
+  #              - s3:PutObjectAcl
+  #            Resource: !Join ['', ['arn:aws:s3:::', !Ref 'Bucket1', /raw/*]]
+  #            Principal:
+  #              AWS:
+                  # List of AWS Accounts for cross-account subscriptions
+  #                - !Sub 'arn:aws:iam::060126977165:user-minerva'
+ 
