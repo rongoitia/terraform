@@ -398,8 +398,8 @@ module "s3-website" {
   environment                         = var.environment
   app_name                            = var.app_name
 
-  name_workera_frontend_website       = var.name_workera_website
-  acl_workera_frontend_website        = var.acl_workera_website
+  name_company_frontend_website       = var.name_company_website
+  acl_company_frontend_website        = var.acl_company_website
 }
 
 
@@ -440,8 +440,8 @@ module "cloudfront" {
   lambda_cloudfront_web_redirect_arn          = module.lambda-edge.lambda_cloudfront_web_redirect_arn
   download_subdomain                          = var.download_subdomain
 
-  workera_frontend_website_regional_name      = module.s3-website.workera_frontend_website_regional_name
-  workera_frontend_website_id                 = module.s3-website.workera_frontend_website_id
+  company_frontend_website_regional_name      = module.s3-website.company_frontend_website_regional_name
+  company_frontend_website_id                 = module.s3-website.company_frontend_website_id
 
 
   reach_ai_media_regional_name                = module.s3-storage.s3_reach_ai_media_regional_name
@@ -503,13 +503,13 @@ module "secrets_env" {
   sns_topic_arn_learning_started_arn    = module.sns.sns_topic_arn_learning_started_arn
   sns_topic_arn_skills_test_arn         = module.sns.sns_topic_arn_skills_test_arn
   s3_sensei_resumes_name                = module.s3-storage.s3_sensei_resumes_name
-  s3_workera_downloadable_files_name    = module.s3-storage.s3_workera_downloadable_files_name
+  s3_company_downloadable_files_name    = module.s3-storage.s3_company_downloadable_files_name
   s3_reach_ai_media_name                = module.s3-storage.s3_reach_ai_media_name
-  s3_workera_certificates_name          = module.s3-storage.s3_workera_certificates_name
+  s3_company_certificates_name          = module.s3-storage.s3_company_certificates_name
   s3_company_reports_name               = module.s3-storage.s3_company_reports_name
   sqs_company_reports                   = module.sqs.sqs_company_reports_url
   s3_app_files_name                     = module.s3-storage.s3_app_files_name
-  s3_workera_certificates_regional_name = module.s3-storage.s3_workera_certificates_regional_name
+  s3_company_certificates_regional_name = module.s3-storage.s3_company_certificates_regional_name
 
   frontend_url                          = "${var.frontend_subdomain}.${var.main_domain}"
   odoo_url                              = "${var.odoo_subdomain}.${var.main_domain}"
@@ -556,8 +556,8 @@ module "s3" {
   environment                   = var.environment
   app_name                      = var.app_name
 
-  name_workera_secret_files     = var.name_workera_secret_files
-  acl_workera_secret_files      = var.acl_workera_secret_files
+  name_company_secret_files     = var.name_company_secret_files
+  acl_company_secret_files      = var.acl_company_secret_files
 }
 
 module "s3-storage" {
@@ -569,11 +569,11 @@ module "s3-storage" {
   name_sensei_resumes           = var.name_sensei_resumes
   acl_sensei_resumes            = var.acl_sensei_resumes
 
-  name_workera_downloadable_files     = var.name_workera_downloadable_files
-  acl_workera_downloadable_files      = var.acl_workera_downloadable_files
+  name_company_downloadable_files     = var.name_company_downloadable_files
+  acl_company_downloadable_files      = var.acl_company_downloadable_files
 
-  name_workera_certificates     = var.name_workera_certificates
-  acl_workera_certificates      = var.acl_workera_certificates
+  name_company_certificates     = var.name_company_certificates
+  acl_company_certificates      = var.acl_company_certificates
 
   name_reach_ai_media           = var.name_reach_ai_media
   acl_reach_ai_media            = var.acl_reach_ai_media
@@ -581,8 +581,8 @@ module "s3-storage" {
   name_mlp_matching_results     = var.name_mlp_matching_results
   acl_mlp_matching_results      = var.acl_mlp_matching_results
 
-  name_workera_public_sources   = var.name_workera_public_sources
-  acl_workera_public_sources    = var.acl_workera_public_sources
+  name_company_public_sources   = var.name_company_public_sources
+  acl_company_public_sources    = var.acl_company_public_sources
 
   name_company_reports          = var.name_company_reports
   acl_company_reports           = var.acl_company_reports
@@ -595,7 +595,7 @@ module "s3-storage" {
 }
 
 module "route53" {
-  source 		                    = "../../modules/route53/workera.ai"
+  source 		                    = "../../modules/route53/company.ai"
   environment                   = var.environment
   app_name                      = var.app_name
 

@@ -4,7 +4,7 @@ terraform {
 
   backend "s3" {
     skip_credentials_validation = true
-    bucket                      = "workera-terraform-dev"
+    bucket                      = "company-terraform-dev"
     key                         = "dev/terraform.tfstate"
     region                      = "us-east-2"
   }

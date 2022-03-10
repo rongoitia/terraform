@@ -411,10 +411,10 @@ variable "frontend_cnames" {
 
 
 ### S3 Website
-variable "name_workera_website" {
+variable "name_company_website" {
   type = string
 }
-variable "acl_workera_website" {
+variable "acl_company_website" {
   type = string
 }
 variable "main_domain" {
@@ -454,17 +454,17 @@ variable "acl_sensei_resumes" {
   type = string
 }
 
-variable "name_workera_downloadable_files" {
+variable "name_company_downloadable_files" {
   type = string
 }
-variable "acl_workera_downloadable_files" {
+variable "acl_company_downloadable_files" {
   type = string
 }
 
-variable "name_workera_certificates" {
+variable "name_company_certificates" {
   type = string
 }
-variable "acl_workera_certificates" {
+variable "acl_company_certificates" {
   type = string
 }
 
@@ -482,17 +482,17 @@ variable "acl_mlp_matching_results" {
   type = string
 }
 
-variable "name_workera_public_sources" {
+variable "name_company_public_sources" {
   type = string
 }
-variable "acl_workera_public_sources" {
+variable "acl_company_public_sources" {
   type = string
 }
 
-variable "name_workera_secret_files" {
+variable "name_company_secret_files" {
   type = string
 }
-variable "acl_workera_secret_files" {
+variable "acl_company_secret_files" {
   type = string
 }
 
