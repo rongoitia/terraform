@@ -389,7 +389,7 @@ module "codepipeline-notifications" {
   name            = "pipeline-notifications"
   namespace       = var.app_name
   stage           = var.environment
-  slack_url       = "https://hooks.slack.com/services/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"
+  slack_url       = "https://hooks.slack.com/services/{token}"
   slack_channel   = "#engineering_cicd_notifications"
   slack_emoji     = ":rocket:"
   codepipelines   = [
